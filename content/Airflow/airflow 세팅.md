@@ -13,12 +13,11 @@ tags:
   - docker
   - docker/docker-compose
 ---
-> [!hint] 요약
-> - MAC에 Docker Desktop 설치
-> 	- 하위 폴더들 생성
-> - docker-compose 설치
-> - python 내 apache-airflow 설치
-
+> [!summary] 순서
+> 1. Mac에 **Docker Desktop** 설치 후, 하위 폴더들 생성
+> 2. Python 가상환경에 **apache-airflow** 설치
+> 3. docker-compose.yaml 다운로드 및 수정
+> 4. 초기설정
 # 1. docker 설치
 
 ### 1) docker desktop으로 설치
