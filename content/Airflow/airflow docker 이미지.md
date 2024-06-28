@@ -47,7 +47,7 @@ RUN pip install -r /requirements.txt
 docker build --tag extending-airflow:latest
 ```
 - docker desktop 내 Images
-![[Pasted image 20240508013800.png]]
+![[도커 파일 빌드.png]]
 
 #### 4. docker-compose.yaml 수정
 - `apache/airflow:2.9.1` -> `extending-airflow:latest`
