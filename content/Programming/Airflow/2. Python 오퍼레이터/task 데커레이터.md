@@ -19,11 +19,12 @@ tags:
 > 2. 함수 안에 함수 선언이 가능
 > 3. 함수의 인자로 함수 전달이 가능
 > 4. 함수 자체를 리턴하는게 가능
+## 장점
+- 함수를 직접 수정하지 않고, wrapping 함수를 생성하여 함수 변경 최소화
+- 함수 호출 로직이 다수인 경우, 일일이 로직을 찾아 수정하지 않고 기존 로직을 그대로 사용 가능
 
-- 장점
-	- 함수를 직접 수정하지 않고, wrapping 함수를 생성하여 함수 변경 최소화
-	- 함수 호출 로직이 다수인 경우, 일일이 로직을 찾아 수정하지 않고 기존 로직을 그대로 사용 가능
-
+## 활용
+- `outer_func`를 적용할 함수가 다수인 경우, 일일이 객체를 지정해야함
 ```python
 def outer_func(target_func):
 	def inner_func():
@@ -33,8 +34,6 @@ def outer_func(target_func):
 		
 	return inner_func()
 ```
-
-- `outer_func`를 적용할 함수가 다수인 경우, 일일이 객체를 지정해야함
 ```python
 def get_data():
 	print('함수 실행')
@@ -57,7 +56,8 @@ get_data()
 > - `from airflow.decorators import task` 로 불러오기
 > - PythonOperator를 직접 import 하여 생성하지 않고 쉽게 작성가능
 > 	- Tip) airflow 공식문서의 경우, Python 오퍼레이터를 import하여 활용하기 보다는 task 데커레이터를 활용하는 것이 좋다고 명시됨
-1. 기존 PythonOperator 활용하는 경우
+## PythonOperator와 Task Decorators 비교
+1. 기존 <u>PythonOperator</u> 활용: 함수 정의 후, task에 관련된 명령어 따로 작성 필요
 ```python
 from airflow import DAG
 from airflow.operators.python import PythonOperator
@@ -70,7 +70,7 @@ py_task_1 = PythonOperator(
 	python_callable = python_func						   
 )
 ```
-2. **Task decorator 활용**
+2. **Task decorator 활용**: 함수를 정의함과 동시에 task 정보 입력이 가능하여 코드 단축!
 ```python
 from airflow import DAG
 from airflow.decorators import task
