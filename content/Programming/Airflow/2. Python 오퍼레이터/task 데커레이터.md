@@ -34,6 +34,7 @@ def outer_func(target_func):
 	return inner_func()
 ```
 
+- `outer_func`를 적용할 함수가 다수인 경우, 일일이 객체를 지정해야함
 ```python
 def get_data():
 	print('함수 실행')
@@ -41,9 +42,7 @@ def get_data():
 a = outer_func(get_data)
 a()
 ```
-
-- 기존 함수 호출 로직을 수정하지 않아도 됨
-
+- Decorator 활용(`@outer_func`) : 기존 함수 호출 로직을 수정하지 않아도 됨
 ```python
 @outer_func
 def get_data():
@@ -51,12 +50,14 @@ def get_data():
 
 get_data()
 ```
+---
 # 2. task 데커레이터
 > [!hint] 
 > - python 함수 정의만으로 쉽게 Task 생성
 > - `from airflow.decorators import task` 로 불러오기
 > - PythonOperator를 직접 import 하여 생성하지 않고 쉽게 작성가능
-
+> 	- Tip) airflow 공식문서의 경우, Python 오퍼레이터를 import하여 활용하기 보다는 task 데커레이터를 활용하는 것이 좋다고 명시됨
+1. 기존 PythonOperator 활용하는 경우
 ```python
 from airflow import DAG
 from airflow.operators.python import PythonOperator
@@ -69,10 +70,7 @@ py_task_1 = PythonOperator(
 	python_callable = python_func						   
 )
 ```
-
-
-
-- airflow 공식문서의 경우, Python 오퍼레이터를 import하여 활용하기 보다는 task 데커레이터를 활용하는 것이 좋다고 명시됨
+2. **Task decorator 활용**
 ```python
 from airflow import DAG
 from airflow.decorators import task
@@ -83,3 +81,7 @@ def python_func():
 
 py_task_1 = python_func()
 ```
+---
+> [!example] 참고 사이트
+> - [airflow 강의 github](https://github.com/hjkim-sun/airflow)
+
