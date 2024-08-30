@@ -1,19 +1,12 @@
 ---
-title: quartz blog test
+title: "\bHaden의 Digital Garden"
 views: "14"
 words: "4"
 ---
-환영합니다 🏃🏻 
+Haden의 디지털 가든에 오신 걸 환영합니다.
 
-띄
-어
-쓰
-기
-
----
-
-### 헤드3
-
-- [[이사 물품 구매]]
-
+주로 정리한 내용은 아래와 같습니다:)
+- Programming(💻Airflow, Python, PostgreSQL)
+- Fianance(💵)
+- Hobby(Guitar 🎸, Running 🏃🏻)
 ---
