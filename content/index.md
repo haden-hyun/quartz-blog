@@ -13,6 +13,8 @@ Haden의 디지털 가든에 오신 걸 환영합니다.
 
 ## 이미지 테스트
 
-![[docs/quartz layout.png|800]]
+![[quartz layout.png]]
 
+
+![[도커 이미지 수정.png]]
 ![[도커 파일 빌드.png]]
