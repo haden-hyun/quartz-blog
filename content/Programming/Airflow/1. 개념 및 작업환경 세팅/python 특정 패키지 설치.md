@@ -40,12 +40,14 @@ RUN pip install -r /requirements.txt
 ```bash
 docker build --tag extending-airflow:latest
 ```
-![[도커 파일 빌드.png]]
+![[도커 파일 빌드.png|center]]
 # 4. 관리 문서 수정
 - 새롭게 생성한 Image를 Airflow에 적용할 경우, `docker-compose.yaml` 내 Image 경로 수정
 	- (기존)`apache/airflow:2.9.1` -> (수정)`extending-airflow:latest`
 - **단, 기존 Image 사용할 경우 수정 안해도 됨**
-![[도커 이미지 수정.png]]
+
+![[도커 이미지 수정.png|center]]
+
 ---
 > [!example] 참고 사이트
 > - [(Youtube)Airflow 내 python 패키지 설치](https://www.youtube.com/watch?v=0UepvC9X4HY)
