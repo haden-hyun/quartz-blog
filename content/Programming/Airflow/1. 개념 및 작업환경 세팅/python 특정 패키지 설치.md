@@ -47,6 +47,8 @@ docker build --tag extending-airflow:latest
 	- (기존)`apache/airflow:2.9.1` -> (수정)`extending-airflow:latest`
 - **단, 기존 Image 사용할 경우 수정 안해도 됨**
 
+![[도커 파일 빌드.png|800x100]]
+
 ![[도커 이미지 수정.png]]
 
 ---
