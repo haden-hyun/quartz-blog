@@ -1,5 +1,5 @@
 ---
-title: op_args 파라미터
+title: op_args 와 op_kwargs 파라미터
 created: 2024-09-08
 tags:
   - airflow/python/operator/op_args
