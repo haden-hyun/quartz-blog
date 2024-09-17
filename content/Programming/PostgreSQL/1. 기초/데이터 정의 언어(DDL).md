@@ -26,7 +26,7 @@ tags:
 > 	- FK는 학과(<u>department</u>) 릴레이션을 참고하여 학과명으로 설정
 > 	- 학과명은 null 값이 없도록 설정
 
-```postgresql
+```sql
 create table 
 instructor(ID char(5),
 		   name varchar(20) not null,
@@ -39,7 +39,7 @@ instructor(ID char(5),
 # 2. ALTER
 ## 테이블 수정
 > ALTER TABLE 테이블명 RENAME TO 변경_테이블명
-```postgresql
+```sql
 alter table instructor
 rename to new_instructor
 ```
@@ -48,7 +48,7 @@ rename to new_instructor
 > 1. 열 생성: ALTER TABLE 테이블명 **ADD** COLUMN 컬럼명 <u>데이터타입</u>
 > 2. 열 삭제: ALTER TABLE 테이블명 **DROP** COLUMN 컬럼명 <u>데이터타입</u>
 
-```postgresql
+```sql
 -- 1. 열 생성
 alter table instructor
 add column age integer,
@@ -60,7 +60,7 @@ drop column major
 ### 열 이름 변경
 > ALTER TABLE 테이블명 RENAME COLUMN 컬럼명 TO 변경컬럼명
 - 한 명령문에 하나의 열 이름만 변경 가능
-```postgresql
+```sql
 alter table instructor
 rename column col_nm1 to new_col_nm1
 alter table instructor
@@ -68,7 +68,7 @@ rename column col_nm2 to new_col_nm2
 ```
 ### 데이터 타입 변경
 > ALTER TABLE 테이블명 ALTER COLUMN 컬럼명 TYPE 변경데이터타입
-```postgresql
+```sql
 alter table instructor
 alter column salary type varchar(20);
 ```
@@ -76,7 +76,7 @@ alter column salary type varchar(20);
 ### 사후 PK 추가 및 삭제
 > 1. PK 추가: ALTER TABLE 테이블명 ADD CONSTRAINT pk명 PRIMARY KEY (컬럼명)
 > 2. PK 제거: ALTER TABLE 테이블명 DROP CONSTRAINT pk명
-```postgresql
+```sql
 -- 1. PK 생성
 alter table instructor
 add constraint ID_pk primary key (ID)
@@ -88,7 +88,7 @@ drop constraint ID_pk
 > 1. 설정된 PK 제약 이름 확인
 > 2. PK 제거: ALTER TABLE 테이블명 DROP CONSTRAINT 제약PK명
 
-```postgresql
+```sql
 -- 1. 스키마 내 테이블의 PK 제약 이름 확인: `instructor_pkey`
 select conname
 from pg_constraint
