@@ -7,7 +7,7 @@ cssclasses:
 tags:
   - sql/postgresql
   - postgresql/정규표현식
-  - postgreql/regexp_substr
+  - postgresql/regexp_substr
   - postgresql/regexp_replace
 ---
 ## 문자열 교체(regexp_replace)
