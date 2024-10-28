@@ -8,7 +8,7 @@ tags:
   - sql
   - postgresql
   - "#postgresql/trim_scale"
-  - "#postgreql/trailing"
+  - "#postgresql/trailing"
   - postgresql/trim
   - postgresql/소수점
 ---
