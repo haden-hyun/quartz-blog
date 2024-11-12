@@ -61,7 +61,7 @@ drop column major
 > ALTER TABLE 테이블명 RENAME COLUMN 컬럼명 TO 변경컬럼명
 - 한 명령문에 하나의 열 이름만 변경 가능
 ```sql
-alter table instructor
+alter table instructor 
 rename column col_nm1 to new_col_nm1
 alter table instructor
 rename column col_nm2 to new_col_nm2
