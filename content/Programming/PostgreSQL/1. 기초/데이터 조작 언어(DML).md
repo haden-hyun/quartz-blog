@@ -24,21 +24,23 @@ tags:
 - `CREATE TABLE`은 빈 테이블을 생성
 - `INSERT INTO`를 통해 테이블을 채움
 	- 테이블 내 모든 컬럼을 채울 경우, 컬럼명 생략 가능
-```postgresql
+```sql
 -- 1. 테이블 생성
-create table
-schema.table(col1 varchar(10), col2 numeric(8, 2));
--- 2. 테이블 채움
-insert into table 
-values('abcd', 1234),
-		  ('hhjj', 3932);	
+create table schema_name.table_name
+(
+	col1 varchar(10),
+	col2 numeric(8, 2)
+)
+-- 2. 테이블 채우기
+insert into schema_name.table_name
+values('abcd', 1234), ('hhjj', 3932);
 ```
 ---
 # 2. DELETE
 > DELETE FROM 테이블명 WHERE 조건문
 - 조건이 없는 경우 모든 행을 삭제
 - 일반적으로 `WHERE` 조건문을 사용하여 행을 삭제
-```postgresql
+```sql
 -- 1. 모든 행 삭제
 delete from schema.table 
 -- 2. col2 가 3000보다 큰 행 삭제
@@ -49,11 +51,17 @@ where col2 > 3000;
 # 3. UPDATE
 > UPDATE 테이블명 SET 컬럼명 = 변경값 WHERE 조건문
 - 조건에 만족하는 행에 대해서 특정 컬럼명의 값을 변경함
-```postgresql
+```sql
+-- 예시1) 
 update schema.table
 set col1 = 'abcd',
 	col2 = 'aaaa'
 where col3 < 4000;
+
+-- 예시2) 공백 및 콤마 제거 전체 적용
+update schema.table
+set col1 = trim(col1),
+col2 = replace(col2, ',', '')
 ```
 ---
 # 4. SELECT
