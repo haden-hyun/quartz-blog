@@ -9,15 +9,17 @@ tags:
   - postgresql/index
   - postgresql/pk
   - postgresql/테이블생성
+  - postgresql/create
 ---
 > [!summary] 요약
-> - 새로운 대상을 생성하는데 사용됨
+> - `CREATE` 기능: 새로운 대상을 생성하는데 사용됨
 > - 생성 대상 지정(데이터베이스, 스키마, 테이블, index 등)
 > 	- `database`, `schema`, `table`, `index`
 
+---
 # 1. 테이블
 > 테이블 생성 시, 컬럼명과 데이터 타입, PK 등 지정 가능
-> 컬럼 생성 시, 데이터타입 주의(참고: [[데이터타입]])
+> 컬럼 생성 시, 데이터타입 주의(참고: [[데이터 타입]])
 ```sql
 create table 스키마명.테이블명(
 	column1 varchar(20) not null,
@@ -28,19 +30,14 @@ create table 스키마명.테이블명(
 	foreign key (column3) reference 스키마명.참고테이블명
 )
 ```
-
-
-
-
 ---
 # 2. Index
-
 ## 1) Index 생성
-
+- `idx_name`은 생략 가능(자동으로 지어줌)
 ```sql
-create index idx_이름 on 테이블명(컬럼명1, 컬렴명2)
+create index on table_name (column1, column2)
+create index idx_name on table_name (column1, column2)
 ```
-
 ## 2) Index와 Primary Key 차이점
 
 | 구분      | Index                                              | PK                                         |
@@ -51,11 +48,17 @@ create index idx_이름 on 테이블명(컬럼명1, 컬렴명2)
 | 무결성 차이점 | **중복 허용 및 Null 값 포함** 가능(단, Unique Index 설정도 가능)   | 자동으로 **Unique와 Not Null** 제약 포함            |
 | 인덱스 차이점 | 수동으로 인덱스 지정 필요                                     | 고유 Index 생성하여 빠른 조회가 가능함                   |
 
-
 ---
 # 3. 데이터베이스 생성
+```sql
+create database db_name
+```
 ---
 # 4. 스키마 생성
+- database는 지정된 상태
+```sql
+create schema schema_name
+```
 ---
 >[!example] 참고사이트
 
