@@ -5,12 +5,12 @@ modified: 2024-09-17 15:00
 cssclasses:
   - max
 tags:
-  - postgresql/ddl/alter
   - postgresql/테이블수정
   - postgresql/열수정
+  - postgresql/alter
 ---
 > [!summary] 요약
-> - 1차적으로 테이블 그 자체 또는 테이블 내 열 값을 수정할 경우 `ALTER` 명령어를 사용함
+> - `ALTER` 기능: 테이블 그 자체 또는 테이블 내 열, 제약조건을 수정하는 경우 활용
 > - 수정 대상 지정(테이블, 컬럼, 제약조건, 데이터타입)
 > 	- `table`, `column`, `constraint`, `type`
 > - 수정 사항 명령어 입력
@@ -18,32 +18,15 @@ tags:
 > 	- `add` : 새로운 열 및 제약조건 추가
 > 	- `drop` : 기존 열 및 사전 제약조건 제거
 
-- sql 코드블럭 실험
-- sql, postgresql, mysql
-```sql
--- 일반 SQL
-select * from table_name
-```
-
-```postgresql
--- PostgreSQL
-select * from table_name
-```
-
-```mysql
--- Mysql
-select * from table_name
-```
-
+---
 # 1. 테이블 수정
 > 기존에 생성한 테이블의 이름을 변경
 ```sql
-alter table 테이블명
-rename to NEW_TABLE
+alter table old_table_name rename to NEW_TABLE_NAME
 ```
 ---
 # 2. 열 수정
-## 1) 새로운 열 생성 및 삭제
+## 1) 열 생성 및 삭제
 - 데이터 타입 작성 필요
 ```sql
 -- 1. 열 생성
@@ -71,12 +54,12 @@ alter table 테이블명
 alter column 컬럼명 type 변경할_데이터타입
 ```
 ---
-## 3. 제약조건(PK, index 등) 수정
+# 3. 제약조건(PK, index 등) 수정
 ## 1) 사후 PK 추가
-> 기존에 생성한 테이블에서 PK를 새롭게 추가 및 삭제할 경우
+> 기존에 생성한 테이블에서 PK를 새롭게 추가하는 경우 활용
+> PK 이름을 지정해줘야함
 ```sql
-alter table 테이블명
-add constraint PK명1 primary key (컬럼명)
+alter table 테이블명 add constraint PK_name primary key (컬럼명);
 ```
 ## 2) 사전 PK 제거
 - 기존 PK 제약 이름 확인
