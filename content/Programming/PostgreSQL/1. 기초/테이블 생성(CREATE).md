@@ -18,6 +18,7 @@ tags:
 
 ---
 # 1. 테이블
+## 1) 신규 테이블 생성
 > 테이블 생성 시, 컬럼명과 데이터 타입, PK 등 지정 가능
 > 컬럼 생성 시, 데이터타입 주의(참고: [[데이터 타입]])
 ```sql
@@ -30,6 +31,15 @@ create table 스키마명.테이블명(
 	foreign key (column3) reference 스키마명.참고테이블명
 )
 ```
+
+## 2) SELECT 문을 활용하여 테이블 생성
+> `FROM` 문에서 가져온 테이블 내 컬럼의 속성을 그대로 생성
+```postgresql
+create table 스키마명.테이블명 as
+select column1, column2
+from schema.table;
+```
+
 ---
 # 2. Index
 ## 1) Index 생성
