@@ -21,10 +21,8 @@ tags:
 ```sql
 -- 1. 테이블 제거
 drop table 스키마명.테이블명;
-
 -- 2. 스키마 제거
 drop schema 스키마명;
-
 -- 3. 데이터베이스 제거
 drop database 데이터베이스명;
 ```
