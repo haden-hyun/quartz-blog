@@ -58,6 +58,7 @@ tags:
 # 1. 초기 작업
 git init
 git remote add origin <url>
+
 # 2. git 저장
 git add <file>
 git commit -m "<message>"
