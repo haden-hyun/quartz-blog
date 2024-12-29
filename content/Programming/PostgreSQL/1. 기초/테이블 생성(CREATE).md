@@ -34,7 +34,8 @@ create table 스키마명.테이블명(
 
 ## 2) SELECT 문을 활용하여 테이블 생성
 > `FROM` 문에서 가져온 테이블 내 컬럼의 속성을 그대로 생성
-```postgresql
+> `CREATE TABLE AS` 활용
+```sql
 create table 스키마명.테이블명 as
 select column1, column2
 from schema.table;
